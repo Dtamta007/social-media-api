@@ -11,8 +11,6 @@ const cookieParser = require('cookie-parser');
 const passportConfig = require('./passportConfig');
 const cors = require('cors')
 
-app.use(cors())
-
 // ROUTER FILES
 const userRoute = require('./routes/users');
 const authRoute = require('./routes/auth');
@@ -21,8 +19,9 @@ const postsRoute = require('./routes/posts');
 //meta data
 const app = express();
 const PORT = 8800;
-dotenv.config();
 
+dotenv.config();
+app.use(cors())
 //CONNECTING TO DATABASE
 mongoose.connect("mongodb+srv://deepanshu:deepanshu@cluster0.5ckqr.mongodb.net/social")
     .then(()=>{
