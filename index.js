@@ -77,6 +77,6 @@ app.get('/api/authenticated',passport.authenticate('jwt', {session:false}),(req,
     res.status(200).json({isAuthenticated: true, user});
 })
 
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log("Server listening on port "+ PORT);
 })
